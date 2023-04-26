@@ -21,7 +21,7 @@ async def create_upload_file(file: UploadFile = File(...)):
         file_object.write(file.file.read())
     result=predict(file_location)
     # print("Received request to create_upload_file")
-    # print(f"File name: {file.filename}")
+    print(f"File name: {file.filename}")
     return {"filename": file.filename, "result":result}
 
 
