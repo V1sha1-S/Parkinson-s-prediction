@@ -5,14 +5,13 @@ import os
 import pandas as pd
 from skimage.io import imread
 from skimage.color import rgb2gray
-from google.colab.patches import cv2_imshow
 from skimage.feature import local_binary_pattern
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 def predict(file):
-    model = joblib.load('./modelGray3.pkl')
+    model = joblib.load('./model/modelGray3.pkl')
     radius = 1
     n_points = 8 * radius
     METHOD = 'uniform'
@@ -37,6 +36,6 @@ def predict(file):
 
     # Print the predicted class label
     if prediction[0] == "parkinson":
-        return True
+        return 'You may be Diagnosed with Parkinson'
     else:
-        return False
+        return 'You are Healthy!!'
