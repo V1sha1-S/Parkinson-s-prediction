@@ -33,6 +33,3 @@ async def create_upload_file(file: UploadFile = File(...)):
         file_object.write(file.file.read())
     result=predict(file_location)
     return {"filename": file.filename, "result":result}
-
-
-# Allow all domains to make requests to the API
